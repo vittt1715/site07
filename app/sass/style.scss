@@ -1,0 +1,814 @@
+
+body {
+  overflow-x: hidden;
+}
+body, html,h1,h2,h3,h4,h5,h6,p,a,div {
+  font-size: 10px;
+}
+* {
+  outline: greenyellow;
+  transition: all .3s ease;
+  //overflow-x: hidden;
+}
+
+$mainBlueColor: #32b4e6;
+$mainGreenColor: #81d742;
+
+@mixin logoText($color) {
+  font-family: 'Anton', sans-serif;
+  font-size:4.8rem;
+  text-transform: uppercase;
+  color: $color;
+  };
+@mixin commonTextRoboto($color,$size,$weight) {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+  }
+.greenLineH2 {
+  width:57px;
+  height:2px;
+  margin: 0.4rem auto;
+  background-color: $mainGreenColor;
+
+}
+.greenLineH4 {
+  width:39px;
+  height:1px;
+  margin: 0.2rem auto;
+  background-color: $mainGreenColor;
+}
+.mainH2section {
+  @include commonTextRoboto(#000,4rem, 700);
+  text-transform: uppercase;
+  text-align: center;
+  padding:1em 0 0 0;
+}
+.mainH4blocks {
+  @include commonTextRoboto(#222,1.4rem, 700);
+  text-transform: uppercase;
+  text-align: center;
+  padding:0.5rem 0 0.5rem 0;
+}
+
+
+
+.header {
+  background-color: #222;
+  margin:0 -15px;
+  & .row {
+    position: relative;
+
+  }
+  & .navLogo {
+    position: relative;
+    padding:3rem 2rem 2rem 10rem;
+    height:150px;
+    min-width:300px;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 8em;
+      height:8em;
+      background-color: #fff;
+      border-radius: 50%;
+      left:1em;
+      top:4em;
+    }
+    & img {
+      position: absolute;
+      left:1rem;
+      top:4rem;
+    }
+    & .firstRowLogoText {
+      white-space: nowrap;
+      padding-top:2em;
+      & .first {
+        @include logoText(#fff);
+        }
+      & .second {
+        @include logoText($mainGreenColor);
+      }
+      & .third {
+        @include logoText($mainBlueColor);
+      }
+    }
+    & .secondRowLogoText {
+      text-align: left;
+      padding-left:3em;
+      font-family:'Roboto Condensed', sans-serif;
+      font-size:1.2rem;
+      font-weight:300;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing:0.4rem;
+
+    }
+  }
+
+  & .navMenus {
+    & .navMenusTop {
+      position: relative;
+      z-index: 2;
+    }
+    & .navMenusTopPhones {
+      text-wrap: none;
+      width: 28%;
+      position: relative;
+      padding: 1.5rem 0;
+      margin: 0 1%;
+      text-align: center;
+      cursor: pointer;
+      white-space: nowrap;
+
+      & span {
+        @include commonTextRoboto($mainBlueColor, 1.8rem, 400);
+      }
+      & .fa-long-arrow-up {
+        color: $mainBlueColor;
+        font-size: 1.8rem;
+      }
+      & .fa-long-arrow-down {
+        color: $mainBlueColor;
+        font-size:1.8rem;
+        display: none;
+      }
+      & .phonesDropdown {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        height: 0px;
+        overflow: hidden;
+        transition: all .5s ease;
+        background-color: $mainBlueColor;
+        cursor: pointer;
+        & > li {
+          & > a {
+            @include commonTextRoboto(#222, 1.8rem, 400);
+            text-decoration: none;
+
+          }
+        }
+
+      }
+      &:hover {
+        & .fa-long-arrow-up {
+          display: none;
+        }
+        & .fa-long-arrow-down {
+          display: inline;
+        }
+
+        & .phonesDropdown {
+          height: 16rem;
+          padding-top: 1rem;
+          border-top: 2px solid #fff;
+
+          & > li {
+            & > a {
+              @include commonTextRoboto(#222, 1.8rem, 400);
+              display: block;
+              padding: 0.5rem;
+
+            }
+          }
+        }
+      }
+    }
+    & .navMenusTopMail {
+      text-wrap: none;
+      width: 28%;
+      position: relative;
+      padding: 1.5rem 0;
+      margin: 0 1%;
+      text-align: center;
+      cursor: pointer;
+      white-space: nowrap;
+
+
+      & span {
+        @include commonTextRoboto($mainGreenColor, 1.8rem, 400);
+      }
+      & .fa-long-arrow-up {
+        color: $mainGreenColor;
+        font-size: 1.8rem;
+      }
+      & .fa-long-arrow-down {
+        color: $mainGreenColor;
+        font-size:1.8rem;
+        display: none;
+      }
+      & .mailDropdown {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        height: 0px;
+        overflow: hidden;
+        transition: all .5s ease;
+        background-color: $mainGreenColor;
+        cursor: pointer;
+        & > li {
+          & > a {
+            @include commonTextRoboto(#222, 1.8rem, 400);
+            text-decoration: none;
+
+          }
+        }
+
+      }
+      &:hover {
+        & .fa-long-arrow-up {
+          display: none;
+        }
+        & .fa-long-arrow-down {
+          display: inline;
+        }
+
+        & .mailDropdown {
+          height: 16rem;
+          padding-top: 1.8rem;
+          border-top: 2px solid #fff;
+
+          & > li {
+            & > a {
+              @include commonTextRoboto(#222, 1.8rem, 400);
+              display: block;
+              padding: 0.5rem;
+
+            }
+          }
+        }
+      }
+    }
+    & .navMenusTopLang {
+      text-wrap: none;
+      width: 18%;
+      position: relative;
+      padding: 1.5rem 0;
+      margin: 0 1%;
+      text-align: center;
+      white-space: nowrap;
+
+      & a {
+        display: inline-block;
+        padding:0 0.3rem;
+        text-decoration: none;
+        @include commonTextRoboto(#999999,1.6rem,300);
+        &:after {
+          content: '';
+          display: block;
+          width:100%;
+          height:1px;
+          background: linear-gradient(to right, #999999 0%, #999999 25%, transparent 25%, transparent 37.5%, #999999 37.5%, #999 62.5%, transparent 62.5%, transparent 75%, #999 75%, #999 100%);
+        }
+        &:hover {
+          color: #fff;
+          &:after {
+            background: linear-gradient(to right, #fff 0%, #fff 25%, transparent 25%, transparent 37.5%, #fff 37.5%, #fff 62.5%, transparent 62.5%, transparent 75%, #fff 75%, #fff 100%);
+
+          }
+        }
+      }
+    }
+    & .navMenusTopCurrency {
+      text-wrap: none;
+      width: 18%;
+      position: relative;
+      padding: 1.5rem 0;
+      margin: 0 1%;
+      text-align: center;
+      white-space: nowrap;
+
+      & a {
+        display: inline-block;
+        padding:0 0.3rem;
+        text-decoration: none;
+        @include commonTextRoboto(#999999,1.6rem,300);
+        &:after {
+          content: '';
+          display: block;
+          width:100%;
+          height:1px;
+          background: linear-gradient(to right, #999999 0%, #999999 25%, transparent 25%, transparent 37.5%, #999999 37.5%, #999 62.5%, transparent 62.5%, transparent 75%, #999 75%, #999 100%);
+        }
+        &:hover {
+          color: #fff;
+          &:after {
+            background: linear-gradient(to right, #fff 0%, #fff 25%, transparent 25%, transparent 37.5%, #fff 37.5%, #fff 62.5%, transparent 62.5%, transparent 75%, #fff 75%, #fff 100%);
+
+          }
+        }
+      }
+    }
+  }
+  & .navMenusBottom {
+    background-color: transparent;
+    border-color: transparent;
+    padding-top:1.5rem;
+    float: right;
+    width:100%;
+    position: absolute;
+    right:0;
+    top:40%;
+    overflow: visible;
+    z-index: 3;
+    & .container-fluid {
+      padding-left: 0px;
+      padding-right:0px;
+      & .navbar-header {
+        & .navbar-toggle {
+          transform: translateX(-3rem);
+        }
+      }
+      & .navbar-collapse {
+        padding-left: 0px;
+        padding-right:0px;
+        overflow: visible;
+        background-color: rgba(55,55,55,1);
+
+        & .nav {
+          width:100%;
+
+          &>li {
+            text-align: center;
+            position: relative;
+            & .headerSecondDropMenu {
+              opacity:0;
+              z-index: 0;
+              position: absolute;
+              padding:1rem;
+              background-color: $mainGreenColor;
+              top:100%;
+              left:25%;
+              width:50%;
+            }
+            &>a {
+              display: inline-block;
+              padding:0.5rem 0;
+              margin:0 1rem;
+              @include commonTextRoboto(#fff,1rem,400);
+              text-transform: uppercase;
+              &:after {
+                content: '';
+                display: block;
+                width:100%;
+                height:2px;
+                background-color: transparent;
+                transition: all 0.6s ease;
+              }
+            }
+          }
+          &>li:hover {
+            &>a:after {
+              background-color: #fff;
+            }
+            & .headerSecondDropMenu {
+              opacity:1;
+              z-index:2;
+
+              &>li {
+                text-align: left;
+                &>a {
+                  display: block;
+                  padding:0.5rem;
+                  @include commonTextRoboto(#222,1rem,400);
+                  text-transform: none;
+                  text-decoration: none;
+                  &>i {
+                    color: #fff;
+                    display: inline-block;
+                    padding-right: 0.5rem;
+                  }
+                  &:hover {
+                    color: #fff;
+                    &>i {
+                      color: #222;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.service {
+  background-color: #fff;
+  &>.row {
+    &>div {
+      max-height:16rem;
+      overflow: hidden;
+      padding-top: 1rem;
+      padding-bottom:1rem;
+      & img {
+        display: block;
+        margin:0 auto;
+        height:4rem;
+        &:hover {
+          filter: saturate(5);
+        }
+      }
+      & .mainH4blocks {
+
+      }
+      & .blockText {
+        @include commonTextRoboto(#999,1rem,400);
+        text-align: center;
+      }
+    }
+  }
+
+
+}
+
+.works {
+  background-color: #fff;
+  background-image: url('../img/Section3_backgroundImage.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
+  margin:0 -15px;
+  & .bgGreen {
+    background-color: rgba(117,210,90,0.85);
+    padding-bottom: 1rem;
+
+    & .ourWorks {
+      padding-top:5rem;
+    }
+    & .greenLineH2 {
+      background-color: #fff;
+    }
+    & .worksPageLinksList {
+      width:90%;
+      text-align: center;
+      margin: 1rem auto 0rem;
+      text-wrap:none;
+      &>li {
+        display: inline-block;
+        margin:0 0.5rem;
+        &>a {
+          padding:1rem 0rem;
+          @include commonTextRoboto(#222,1.4rem,400);
+          text-decoration: none;
+          display: inline-block;
+          color: #222;
+          &:after {
+            content: '';
+            display: block;
+            width:100%;
+            height: 2px;
+            margin:0.1rem auto;
+            background: repeating-linear-gradient(90deg,#222 0rem,#222 0.6rem,transparent 0.6rem, transparent 1.1rem);;
+          }
+          &:hover {
+            color:#fff;
+            &:after {
+              background: repeating-linear-gradient(90deg,#fff 0rem,#fff 0.6rem,transparent 0.6rem, transparent 1.1rem);;
+            }
+          }
+        }
+
+      }
+    }
+  }
+  .carousel {
+    & .carousel-inner {
+      & .item {
+        margin:0 1rem;
+        width:50%;
+        float: left;
+        & img {
+
+        }
+        & h4 {
+
+        }
+        & .greenLineH4 {
+
+        }
+        & .blockTextWorks {
+
+        }
+        & .workLinkButton {
+
+        }
+        &.active.left {
+          //left: -10%;
+          transform: translate3d(-25%, 5, 5);
+        }
+        }
+        &.active.right {
+          //left: 10%;
+          transform: translate3d(10%, 0, 0);
+        }
+        }
+      }
+      .worksBottomButton {
+        padding:1rem;
+        background-color: rgba(117,210,90,0.85);
+        & .allWorksButton {
+          display: block;
+          margin:1rem auto;
+          width:16rem;
+          @include commonTextRoboto(#222,1.2rem,700);
+          border:1px solid #222;
+          text-align: center;
+          padding:1rem;
+          text-decoration: none;
+          &:hover {
+            border:1px solid transparent;
+            background-color: #222;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+.advantages {
+    & .mainH2section {
+
+    }
+    & .greenLineH2 {
+      margin-bottom:1rem;
+    }
+    &>.row {
+      &>div {
+        & .checkIcon {
+          display: inline-block;
+          width:1rem;
+          height:1rem;
+          background-image: url(../img/Section4_iconCheck.png);
+          background-size:cover;
+        }
+        & .advantagesH4 {
+          @include commonTextRoboto(#222, 1.2rem,700);
+          text-transform: uppercase;
+
+        }
+        & .advTextBlock {
+          @include commonTextRoboto(#999, 1rem,400);
+          line-height:1.2rem;
+          padding:1rem 0;
+        }
+      }
+    }
+  
+  
+ 
+  
+  
+  
+  
+}
+
+.aboutStudio {
+  background-image: url(../img/Section5_AboutStudio_backgroundImage.jpg);
+  background-size: cover;
+  margin: 0 -15px;
+  box-shadow: inset 0 0 0 1000px rgba(81,191,234,.85);
+  & .row {
+    & .mainH2section {
+      padding:3rem 0 0rem;
+    }
+    & .greenLineH2 {
+      background-color: #fff;
+      margin-bottom:2rem;
+    }
+    & .textBlockWhite {
+      @include commonTextRoboto(#fff,1.0rem,400);
+      padding:1rem 15px;
+      &:nth-last-of-type(1) {
+        margin-bottom:2rem;
+      }
+    }
+  }
+}
+
+.clients {
+  padding:0 0 5rem 0;
+  & .container-carousel {
+    & #clientsOwl {
+      position: relative;
+      & .owl-stage-outer {
+        //margin: 0 auto;
+        transform: scale(0.9);
+
+        & img:hover {
+          filter: grayscale(1);
+          cursor:pointer;
+        }
+      }
+      & .owl-nav {
+        height:0;
+        display: block;
+        & .owl-prev {
+          padding:0;
+          margin:0;
+          position: absolute;
+          top:20%;
+          left:0rem;
+          background-color: transparent;
+          color: #d9d9d9;
+          font-size:5rem;
+          font-weight:400;
+          transform: scaleY(2.5);
+          &:hover {
+            color: #505050;
+          }
+        }
+        & .owl-next {
+          padding:0;
+          margin:0;
+          position: absolute;
+          top:20%;
+          right:0rem;
+          background-color: transparent;
+          color: #d9d9d9;
+          font-size:5rem;
+          font-weight:400;
+          transform: scaleY(2.5);
+          &:hover {
+            color:#505050;
+          }
+        }
+      }
+      & .owl-dots {
+        display: none;
+      }
+
+    }
+
+  }
+}
+
+.testimonials {
+  background-image: url('../img/Section7_backgroundImage(Testimonials).jpg');
+  background-repeat:no-repeat;
+  background-size: cover;
+  margin: 0 -15px;
+  & .bgDark {
+    background-color: rgba(111,111,111,0.65);
+    & .row {
+      & h2 {
+
+      }
+      & .greenLineH2 {
+
+      }
+      & #testimonialsOwl {
+        width:100%;
+        margin: 0 auto;
+        position: relative;
+
+        & .slide {
+          & .leftColumn {
+            text-align: center;
+
+
+            & .photoTestimonial {
+              min-width:60px;
+              margin:0 auto;
+              border-radius:50%;
+              overflow: hidden;
+            }
+            & .nameTestimonial {
+              & .bold {
+                @include commonTextRoboto($mainGreenColor,1.6rem,700);
+                padding:0.5em 0;
+                text-transform: uppercase;
+              }
+              & .regular {
+                @include commonTextRoboto($mainGreenColor,1.6rem,400);
+                text-transform: uppercase;
+              }
+            }
+            & .companyTestimonial {
+              @include commonTextRoboto($mainGreenColor,1.6rem,400);
+              padding:1em 0;
+            }
+          }
+          & .rightColumn {
+            text-align: center;
+            & .bracketsGreen {
+              text-align: center;
+              font-size:4.4rem;
+              color: $mainGreenColor;
+            }
+            & .text_rightColumn {
+              @include commonTextRoboto(#fff,1.5rem,400);
+              padding:1rem;
+
+            }
+          }
+        }
+        & .secontSlideTestimonial {
+
+        }
+
+        & .owl-nav {
+          height:0;
+          display: block;
+          & .owl-prev {
+            padding:0;
+            margin:0;
+            position: absolute;
+            top:20%;
+            left:0rem;
+            background-color: transparent;
+            color: #d9d9d9;
+            font-size:5rem;
+            font-weight:400;
+            transform: scaleY(2.5);
+            &:hover {
+              color: #505050;
+            }
+          }
+          & .owl-next {
+            padding:0;
+            margin:0;
+            position: absolute;
+            top:20%;
+            right:0rem;
+            background-color: transparent;
+            color: #d9d9d9;
+            font-size:5rem;
+            font-weight:400;
+            transform: scaleY(2.5);
+            &:hover {
+              color:#505050;
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.try {
+  width:600px;
+  height: 100px;
+  outline:2px solid gold;
+  background-image: url(../img/Section5_AboutStudio_backgroundImage.jpg);
+  background-color:  rgba(81,191,234,0.85);
+  box-shadow: inset 0 0 0 1000px rgba(81,191,234,.85);
+}
+
+
+@media screen and (min-width: 1200px) {
+  .limitWidth1200 {
+    width: 1170px;
+    margin: 0px auto;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .header {
+    & .navMenusBottom {
+      width: 50%;
+      position: absolute;
+      right: 0%;
+      top: 50%;
+      z-index: 0;
+      overflow: visible;
+      background-color: transparent;
+
+      & .container-fluid {
+
+        & .navbar-header {
+          position: relative;
+          & button {
+
+          }
+        }
+        & .navbar-collapse {
+          padding-left: 0px;
+          padding-right: 0px;
+          overflow: hidden;
+          background-color: transparent;
+          & .nav {
+            width: 100%;
+            & > li {
+              & .headerSecondDropMenu {
+                opacity:0;
+                z-index: 0;
+                position: absolute;
+                padding:1rem;
+                background-color: $mainGreenColor;
+                top:100%;
+                left:-25%;
+                width:150%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
