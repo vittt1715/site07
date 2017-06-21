@@ -19,8 +19,17 @@ $mainGreenColor: #81d742;
 
 //constant section
 $mainFontSize: 1.6rem;
-$mainFontColorHeaderTop:#fff;
-$mainFontColorHeaderTop-hover:#3c3c3c;
+$fontSize_headerProductCaption:2.2rem;
+$fontSize_headerProductText:1.6rem;
+$fontSize_headerProductLink:1.8rem;
+
+
+$fontColorHeaderTop:#fff;
+$fontColorHeaderTop-hover:#3c3c3c;
+$fontColorHeaderProductText:#6a6a6a;
+$fontColorHeaderProductLink:#0071ce;
+$fontColorHeaderProductLink_opacity50:rgba(0,113,206,0.5);
+
 $fontWeightHeader-regular:400;
 
 
@@ -31,16 +40,13 @@ $fontWeightHeader-regular:400;
   color: $fontColor;
   font-weight:$fontWeight;
 }
-@mixin logoText($color) {
-  font-family: 'Fira Sans', sans-serif;
+
+@mixin  fontOpenSans_headerItems($fontSize,$fontColor,$fontWeight){
   font-family: 'Open Sans', sans-serif;
-  };
-@mixin commonTextRoboto($color,$size,$weight) {
-  font-family: "Roboto Condensed", sans-serif;
-  font-size: $size;
-  color: $color;
-  font-weight: $weight;
-  }
+  font-size:$fontSize;
+  color: $fontColor;
+  font-weight:$fontWeight;
+}
 
 //main styles section
 
@@ -65,21 +71,142 @@ $fontWeightHeader-regular:400;
       & .navbar-left {
         &>li {
           &>a {
-            @include fontFiraSans_headerItems($mainFontSize,$mainFontColorHeaderTop,$fontWeightHeader-regular);
+            @include fontFiraSans_headerItems($mainFontSize, $fontColorHeaderTop,$fontWeightHeader-regular);
             height:$mainFontSize*4.5;
-            padding: $mainFontSize*1.5 $mainFontSize*2;
+            padding: $mainFontSize*1.8 $mainFontSize*1;
             text-transform: uppercase;
             &:hover {
               background-color: #fff;
+              color: $fontColorHeaderTop-hover;
             }
+          }
+        }
+        & li.header_products {
+          & .container {
+            position: fixed;
+            top:$mainFontSize*4.5;
+            left:0;
+            //background-color: cyan;
+            width:100%;
+            height:$mainFontSize*35.5;
+
+            & .limitWidth1200 {
+
+              & .firstRow {
+                height:$mainFontSize*35.5*0.75;
+                & div.col-xs-3 {
+                  &:first-of-type:hover {
+                    background-color: #fafafa;
+                  }
+                  & .block {
+                    display: block;
+                    min-height:$mainFontSize*35.5*0.75*0.3333;
+                    max-height:$mainFontSize*35.5*0.75*0.3333;
+                    overflow: hidden;
+                    //box-shadow: inset 0px 0px 10px 10px rgba(255,255,255,1);
+                    margin:0rem;
+                    padding:1rem;
+                    border-bottom: 1.4em solid transparent;
+                    text-decoration: none;
+                    cursor: pointer;
+                    &:hover {
+                      background-color: $fontColorHeaderProductLink_opacity50;
+                    }
+
+                    & .headerProduct-caption {
+                    }
+                    & .headerProduct-text {
+                      line-height:$mainFontSize*1.5;
+                      padding-bottom:20px;
+                    }
+                    & .headerProduct-link {
+                    }
+                  }
+                }
+              }
+              & .secondRow {
+
+              }
+            }
+          }
+          & .headerProduct-caption {
+            @include fontOpenSans_headerItems($fontSize_headerProductCaption, $fontColorHeaderTop-hover,$fontWeightHeader-regular);
+            margin:1em 0;
+          }
+          & .headerProduct-text {
+            @include fontOpenSans_headerItems($fontSize_headerProductText, $fontColorHeaderProductText,$fontWeightHeader-regular);
+            margin:1em 0;
+            text-overflow: ellipsis;
+
+
+          }
+          & .headerProduct-link {
+            display: block;
+            margin:1em 0;
+            @include fontFiraSans_headerItems($fontSize_headerProductLink,$fontColorHeaderProductLink,$fontWeightHeader-regular);
+            text-decoration: none;
+            cursor: pointer;
           }
         }
       }
       & .navbar-right {
         &>li {
           &>a {
+            height:$mainFontSize*4.5;
+            @include fontFiraSans_headerItems($mainFontSize, $fontColorHeaderTop,$fontWeightHeader-regular);
+            padding: $mainFontSize*1.5 $mainFontSize*1;
+            text-transform: uppercase;
+            &:hover {
+              background-color: #fff;
+              color: $fontColorHeaderTop-hover;
+            }
 
           }
+        }
+        &>li.header_language {
+          position: relative;
+          width:$mainFontSize*3.2;
+
+          &>ul {
+            position: absolute;
+            top:100%;
+            list-style: none;
+            padding:0;
+            height:$mainFontSize*9;
+            &>li {
+              text-decoration: none;
+              &>a {
+                display: block;
+                @include fontFiraSans_headerItems($mainFontSize, $fontColorHeaderTop,$fontWeightHeader-regular);
+                padding: $mainFontSize*1.5 $mainFontSize*1;
+                text-transform: uppercase;
+                background-color: transparent;
+                opacity: 0;
+                text-decoration: none;
+                width:$mainFontSize*3.2;
+              }
+            }
+          }
+          &:hover {
+            background-color: #fff;
+            &>a {
+              color: $fontColorHeaderTop-hover;
+            }
+            &>ul {
+              &>li {
+                &>a {
+                  color: $fontColorHeaderTop-hover;
+                  background-color: #fff;
+                  opacity:1;
+                  position: relative;
+
+                }
+              }
+            }
+          }
+        }
+        &>li.cart {
+
         }
       }
     }
