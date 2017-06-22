@@ -18,10 +18,12 @@ $mainBlueColor: #32b4e6;
 $mainGreenColor: #81d742;
 
 //constant section
+$bodyFontSize: 10px;
 $mainFontSize: 1.6rem;
 $fontSize_headerProductCaption:2.2rem;
 $fontSize_headerProductText:1.6rem;
 $fontSize_headerProductLink:1.8rem;
+$fontSize_headerCompanyCompany:3.6rem;
 
 
 $fontColorHeaderTop:#fff;
@@ -29,8 +31,11 @@ $fontColorHeaderTop-hover:#3c3c3c;
 $fontColorHeaderProductText:#6a6a6a;
 $fontColorHeaderProductLink:#0071ce;
 $fontColorHeaderProductLink_opacity50:rgba(0,113,206,0.5);
+$fontColorButtons_green: #4bb900;
+$colorForLines_lightgray:#d9d9d9;
 
 $fontWeightHeader-regular:400;
+$fontWeightHeader-light:300;
 
 
 //mixin section
@@ -81,8 +86,16 @@ $fontWeightHeader-regular:400;
             }
           }
         }
+        & li.header_products:hover .container {
+          opacity: 1;
+          z-index: 1;
+          visibility: visible;
+        }
         & li.header_products {
           & .container {
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1;
             position: fixed;
             top:$mainFontSize*4.5;
             left:0;
@@ -98,6 +111,7 @@ $fontWeightHeader-regular:400;
                   &:first-of-type:hover {
                     background-color: #fafafa;
                   }
+
                   & .block {
                     display: block;
                     min-height:$mainFontSize*35.5*0.75*0.3333;
@@ -113,6 +127,7 @@ $fontWeightHeader-regular:400;
                       background-color: $fontColorHeaderProductLink_opacity50;
                     }
 
+
                     & .headerProduct-caption {
                     }
                     & .headerProduct-text {
@@ -122,31 +137,79 @@ $fontWeightHeader-regular:400;
                     & .headerProduct-link {
                     }
                   }
+                  & .block01:before {
+                    content: '';
+                    height:90%;
+                    width:1px;
+                    background-color: $fontColorHeaderProductText;
+                    position: absolute;
+                    left: 0;
+                    top:5%;
+                  }
+                  & .block02:after {
+                    content: '';
+                    height:90%;
+                    width:1px;
+                    background-color: $fontColorHeaderProductText;
+                    position: absolute;
+                    right: 0;
+                    top:5%;
+                  }
                 }
               }
               & .secondRow {
+                border-top: 1px solid $fontColorHeaderProductText;
+                &>div {
+                  text-align: left;
 
+
+                  & .headerProductButton {
+                    @include fontFiraSans_headerItems($bodyFontSize*2.2,$fontColorHeaderTop-hover,$fontWeightHeader-regular);
+                    border:none;
+                    background-color: transparent;
+                    padding:1rem;
+                    &:hover {
+                      color: $fontColorButtons_green;;
+                    }
+                  }
+                }
               }
             }
           }
-          & .headerProduct-caption {
-            @include fontOpenSans_headerItems($fontSize_headerProductCaption, $fontColorHeaderTop-hover,$fontWeightHeader-regular);
-            margin:1em 0;
-          }
-          & .headerProduct-text {
-            @include fontOpenSans_headerItems($fontSize_headerProductText, $fontColorHeaderProductText,$fontWeightHeader-regular);
-            margin:1em 0;
-            text-overflow: ellipsis;
 
 
+
+        }
+        & li.header_company {
+          & .container-fluid {
+            background-color: #fff;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1;
+            position: fixed;
+            top:$mainFontSize*4.5;
+            left:0;
+            //background-color: cyan;
+            width:100%;
+            //height: $mainFontSize*35.5;
+
+            & .row {
+              padding-top: 2em;
+              &>div {
+                height: $mainFontSize*12;
+                &>p {
+                  padding-right:2rem;
+                }
+              }
+              &>h2 {
+              }
+            }
           }
-          & .headerProduct-link {
-            display: block;
-            margin:1em 0;
-            @include fontFiraSans_headerItems($fontSize_headerProductLink,$fontColorHeaderProductLink,$fontWeightHeader-regular);
-            text-decoration: none;
-            cursor: pointer;
-          }
+        }
+        & li.header_company:hover .container-fluid {
+          opacity: 1;
+          visibility: visible;
+          z-index: 1;
         }
       }
       & .navbar-right {
@@ -206,10 +269,48 @@ $fontWeightHeader-regular:400;
           }
         }
         &>li.cart {
-
+          &:after {
+            content: '20';
+            @include fontOpenSans_headerItems(1.1rem,#fff,400);
+            display: block;
+            position: absolute;
+            right:0;
+            top:1rem;
+            width:2rem;
+            height:2rem;
+            background-color: #026ab7;
+            border:1px solid #051830;
+            border-radius:50%;
+            padding:0.1rem 0.1rem 0.1rem 0.2rem;
+          }
+          &:hover:after {
+            border:1px solid #fff;
+          }
         }
       }
+
+      & .headerProduct-caption {
+        @include fontOpenSans_headerItems($fontSize_headerProductCaption, $fontColorHeaderTop-hover,$fontWeightHeader-regular);
+        margin:1em 0;
+      }
+      & .headerProduct-text {
+        @include fontOpenSans_headerItems($fontSize_headerProductText, $fontColorHeaderProductText,$fontWeightHeader-regular);
+        margin:1em 0;
+        text-overflow: ellipsis;
+      }
+      & .headerProduct-link {
+        display: block;
+        margin:1em 0;
+        @include fontFiraSans_headerItems($fontSize_headerProductLink,$fontColorHeaderProductLink,$fontWeightHeader-regular);
+        text-decoration: none;
+        cursor: pointer;
+      }
+      & .headerCompany_company {
+        @include fontFiraSans_headerItems($fontSize_headerCompanyCompany,$fontColorHeaderTop-hover,$fontWeightHeader-light);
+
+      }
     }
+
   }
 
 

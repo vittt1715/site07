@@ -28,7 +28,14 @@ body, html, h1, h2, h3, h4, h5, h6, p, a, div {
     .mainNavbar .container-fluid .navbar-collapse .navbar-left > li > a:hover {
       background-color: #fff;
       color: #3c3c3c; }
+  .mainNavbar .container-fluid .navbar-collapse .navbar-left li.header_products:hover .container {
+    opacity: 1;
+    z-index: 1;
+    visibility: visible; }
   .mainNavbar .container-fluid .navbar-collapse .navbar-left li.header_products .container {
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
     position: fixed;
     top: 7.2rem;
     left: 0;
@@ -53,28 +60,55 @@ body, html, h1, h2, h3, h4, h5, h6, p, a, div {
         .mainNavbar .container-fluid .navbar-collapse .navbar-left li.header_products .container .limitWidth1200 .firstRow div.col-xs-3 .block .headerProduct-text {
           line-height: 2.4rem;
           padding-bottom: 20px; }
-  .mainNavbar .container-fluid .navbar-collapse .navbar-left li.header_products .headerProduct-caption {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 2.2rem;
-    color: #3c3c3c;
-    font-weight: 400;
-    margin: 1em 0; }
-  .mainNavbar .container-fluid .navbar-collapse .navbar-left li.header_products .headerProduct-text {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.6rem;
-    color: #6a6a6a;
-    font-weight: 400;
-    margin: 1em 0;
-    text-overflow: ellipsis; }
-  .mainNavbar .container-fluid .navbar-collapse .navbar-left li.header_products .headerProduct-link {
-    display: block;
-    margin: 1em 0;
-    font-family: 'Fira Sans', sans-serif;
-    font-size: 1.8rem;
-    color: #0071ce;
-    font-weight: 400;
-    text-decoration: none;
-    cursor: pointer; }
+      .mainNavbar .container-fluid .navbar-collapse .navbar-left li.header_products .container .limitWidth1200 .firstRow div.col-xs-3 .block01:before {
+        content: '';
+        height: 90%;
+        width: 1px;
+        background-color: #6a6a6a;
+        position: absolute;
+        left: 0;
+        top: 5%; }
+      .mainNavbar .container-fluid .navbar-collapse .navbar-left li.header_products .container .limitWidth1200 .firstRow div.col-xs-3 .block02:after {
+        content: '';
+        height: 90%;
+        width: 1px;
+        background-color: #6a6a6a;
+        position: absolute;
+        right: 0;
+        top: 5%; }
+    .mainNavbar .container-fluid .navbar-collapse .navbar-left li.header_products .container .limitWidth1200 .secondRow {
+      border-top: 1px solid #6a6a6a; }
+      .mainNavbar .container-fluid .navbar-collapse .navbar-left li.header_products .container .limitWidth1200 .secondRow > div {
+        text-align: left; }
+        .mainNavbar .container-fluid .navbar-collapse .navbar-left li.header_products .container .limitWidth1200 .secondRow > div .headerProductButton {
+          font-family: 'Fira Sans', sans-serif;
+          font-size: 22px;
+          color: #3c3c3c;
+          font-weight: 400;
+          border: none;
+          background-color: transparent;
+          padding: 1rem; }
+          .mainNavbar .container-fluid .navbar-collapse .navbar-left li.header_products .container .limitWidth1200 .secondRow > div .headerProductButton:hover {
+            color: #4bb900; }
+  .mainNavbar .container-fluid .navbar-collapse .navbar-left li.header_company .container-fluid {
+    background-color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
+    position: fixed;
+    top: 7.2rem;
+    left: 0;
+    width: 100%; }
+    .mainNavbar .container-fluid .navbar-collapse .navbar-left li.header_company .container-fluid .row {
+      padding-top: 2em; }
+      .mainNavbar .container-fluid .navbar-collapse .navbar-left li.header_company .container-fluid .row > div {
+        height: 19.2rem; }
+        .mainNavbar .container-fluid .navbar-collapse .navbar-left li.header_company .container-fluid .row > div > p {
+          padding-right: 2rem; }
+  .mainNavbar .container-fluid .navbar-collapse .navbar-left li.header_company:hover .container-fluid {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1; }
   .mainNavbar .container-fluid .navbar-collapse .navbar-right > li > a {
     height: 7.2rem;
     font-family: 'Fira Sans', sans-serif;
@@ -118,6 +152,51 @@ body, html, h1, h2, h3, h4, h5, h6, p, a, div {
         background-color: #fff;
         opacity: 1;
         position: relative; }
+  .mainNavbar .container-fluid .navbar-collapse .navbar-right > li.cart:after {
+    content: '20';
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 400;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 1rem;
+    width: 2rem;
+    height: 2rem;
+    background-color: #026ab7;
+    border: 1px solid #051830;
+    border-radius: 50%;
+    padding: 0.1rem 0.1rem 0.1rem 0.2rem; }
+  .mainNavbar .container-fluid .navbar-collapse .navbar-right > li.cart:hover:after {
+    border: 1px solid #fff; }
+  .mainNavbar .container-fluid .navbar-collapse .headerProduct-caption {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.2rem;
+    color: #3c3c3c;
+    font-weight: 400;
+    margin: 1em 0; }
+  .mainNavbar .container-fluid .navbar-collapse .headerProduct-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.6rem;
+    color: #6a6a6a;
+    font-weight: 400;
+    margin: 1em 0;
+    text-overflow: ellipsis; }
+  .mainNavbar .container-fluid .navbar-collapse .headerProduct-link {
+    display: block;
+    margin: 1em 0;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.8rem;
+    color: #0071ce;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer; }
+  .mainNavbar .container-fluid .navbar-collapse .headerCompany_company {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 3.6rem;
+    color: #3c3c3c;
+    font-weight: 300; }
 
 .try {
   width: 600px;
